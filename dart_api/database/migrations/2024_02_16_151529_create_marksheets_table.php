@@ -4,21 +4,21 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
     public function up(): void
     {
-        Schema::create('attendance', function (Blueprint $table) {
-            $table->id('attendance_id');
+        // marksheets table
+        Schema::create('marksheets', function (Blueprint $table) {
+            $table->id();
             $table->foreignId('student_id')->constrained();
-            $table->foreignId('course_id')->constrained();
-            $table->date('date');
-            $table->enum('status', ['present', 'absent', 'Leave', 'terminate']);
+            $table->foreignId('subject_id')->constrained('subjects'); // Assuming you have a 'subjects' table
+            $table->integer('marks');
             $table->timestamps();
         });
+
     }
 
     /**
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('attendance');
+        Schema::dropIfExists('marksheets');
     }
 };
