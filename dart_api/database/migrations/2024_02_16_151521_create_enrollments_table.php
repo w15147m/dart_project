@@ -17,6 +17,9 @@ return new class extends Migration
             $table->foreignId('course_id')->constrained();
             $table->date('enrollment_date');
             $table->timestamps();
+            $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
+            $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
+
         });
     }
 

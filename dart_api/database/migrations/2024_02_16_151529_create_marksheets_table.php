@@ -17,6 +17,9 @@ return new class extends Migration {
             $table->foreignId('subject_id')->constrained('subjects'); // Assuming you have a 'subjects' table
             $table->integer('marks');
             $table->timestamps();
+            $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
+            $table->foreign('subject_id')->references('id')->on('subjects')->onDelete('cascade');
+
         });
 
     }
