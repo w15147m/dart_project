@@ -32,9 +32,9 @@ class StudentController extends Controller
         })->with(['enrollments.course', 'marksheets.subject'])->get();
         return $markSheets;
     }
-    public function getMarkSheetById()
+    public function getMarkSheetById($id)
     {
-        $markSheets = Student::with(['enrollments.course', 'marksheets.subject'])->find(3);
+        $markSheets = Student::with(['enrollments.course', 'marksheets.subject'])->find($id);
         return $markSheets;
     }
     public function getMarkSheetByName()

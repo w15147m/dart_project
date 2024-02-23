@@ -22,5 +22,5 @@ route::get('/get/courses', [StudentController::class, 'getCourses']);
 route::get('/get/markSheets', [StudentController::class, 'getMarkSheets']);
 route::get('/get/markSheet/by/cource/', [StudentController::class, 'getMarkSheetByCourse']);
 route::get('/get/markSheet/by/name', [StudentController::class, 'getMarkSheetByName']);
-route::get('/get/markSheet/by/id', [StudentController::class, 'getMarkSheetById']);
+route::get('/get/markSheet/by/{id}', [StudentController::class, 'getMarkSheetById']);
 
