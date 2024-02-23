@@ -37,10 +37,10 @@ class StudentController extends Controller
         $markSheets = Student::with(['enrollments.course', 'marksheets.subject'])->find($id);
         return $markSheets;
     }
-    public function getMarkSheetByName()
+    public function getMarkSheetByName($name)
     {
         $markSheets = $student = Student::with(['enrollments.course', 'marksheets.subject'])
-            ->where('name', 'name 1')
+            ->where('name', "$name")
             ->get();
         return $markSheets;
     }

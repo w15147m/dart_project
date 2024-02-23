@@ -5,7 +5,8 @@ import 'student.dart';
 import 'courses.dart';
 import 'markSheets.dart';
 import 'package:http/http.dart' as http;
-      // print('Status Code: ${markSheetById.statusCode}');
+
+// print('Status Code: ${markSheetById.statusCode}');
 var x = true;
 void main() async {
   final student = await http.get(
@@ -17,7 +18,6 @@ void main() async {
   final markSheets = await http.get(
     Uri.parse('http://127.0.0.1:8080/get/markSheets'),
   );
- 
 
   print("Welcome to Student info Portal");
   if (!x) {
@@ -55,13 +55,15 @@ void main() async {
       print("Student");
       getMarkSheetsall(markSheets);
     } else if (option == "2") {
-      print("courses");
-      getMarkSheetsByname(markSheets);
+      print("inter your name");
+      var option = stdin.readLineSync();
+      print("markSheets");
+      getMarkSheetsByname(option);
     } else if (option == "3") {
       print("inter your roll number");
-    var option = stdin.readLineSync();
+      var option = stdin.readLineSync();
       print("markSheets");
-     getMarkSheetsById(option);
+      getMarkSheetsById(option);
     } else if (option == "4") {
       print("markSheets");
       getMarkSheetsclass(markSheets);
@@ -73,9 +75,6 @@ void main() async {
     }
   }
 }
-
-
-
 
 check1(req) {
   bool check = false;
