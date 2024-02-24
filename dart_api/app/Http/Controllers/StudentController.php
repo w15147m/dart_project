@@ -1,12 +1,9 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Models\Student;
 use App\Models\Course;
 use App\Models\Marksheet;
 use Illuminate\Http\Request;
-
 class StudentController extends Controller
 {
     public function getStudent()

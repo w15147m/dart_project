@@ -19,7 +19,6 @@ getMarkSheetsByname(option) async {
   );
   if (markSheetById.statusCode == 200) {
     List data = json.decode(markSheetById.body);
-
     String name = data[0]['name'];
     var rollNum = data[0]['id'];
     String cource = data[0]['enrollments'][0]['course']['course_name'];
@@ -38,7 +37,7 @@ getMarkSheetsByname(option) async {
     print("#   $subject1        $marks1            100             ");
 
     print("Marks Obtained:  ${MarksObtained} out of 200");
-    print("Percentage :  ${calculatePercentage(MarksObtained, 100)}");
+    print("Percentage :  ${calculatePercentage(MarksObtained, 200)}");
     print("#");
     print("###################################################");
   }
@@ -73,8 +72,8 @@ getMarkSheetsById(option) async {
     print("#   subject  Marks Obtained    Total Marks       ");
     print("#   $subject    $marks             100           ");
     print("#   $subject1        $marks1            100             ");
-    print("Marks Obtained:  ${MarksObtained} out of 200");
-    print("Percentage :  ${calculatePercentage(MarksObtained, 100)}");
+    print("#   Marks Obtained:  ${MarksObtained} out of 200");
+    print("#   Percentage :  ${calculatePercentage(MarksObtained, 200)}");
     print("#");
     print("###################################################");
   }
@@ -84,7 +83,6 @@ getMarkSheetsById(option) async {
     main();
   }
 }
-
 getMarkSheetsall(markSheets) {
   if (markSheets.statusCode == 200) {
     List<dynamic> data = json.decode(markSheets.body);

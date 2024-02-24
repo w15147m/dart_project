@@ -18,7 +18,6 @@ void main() async {
   final markSheets = await http.get(
     Uri.parse('http://127.0.0.1:8080/get/markSheets'),
   );
-
   print("Welcome to Student info Portal");
   if (!x) {
     String logIn = '';
@@ -48,7 +47,6 @@ void main() async {
     print("1: rasult for all courses");
     print("2: Check Result by name");
     print("3: Check Result by roll number");
-    print("4: Check Result by class");
     print("0: go home");
     var option = stdin.readLineSync();
     if (option == "1") {
@@ -64,10 +62,7 @@ void main() async {
       var option = stdin.readLineSync();
       print("markSheets");
       getMarkSheetsById(option);
-    } else if (option == "4") {
-      print("markSheets");
-      getMarkSheetsclass(markSheets);
-    } else if (option == "0") {
+    }  else if (option == "0") {
       bool check = check1("0");
       if (check) {
         main();

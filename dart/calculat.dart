@@ -1,4 +1,4 @@
-double calculatePercentage(double part, double whole) {
+calculatePercentage(var part, var whole) {
 
     return (part / whole) * 100;
 
