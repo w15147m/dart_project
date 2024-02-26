@@ -15,7 +15,7 @@ getMarkSheetsclass(markSheets) {
 getMarkSheetsByname(option) async {
   final String name = option;
   final markSheetById = await http.get(
-    Uri.parse('http://127.0.0.1:8080/get/markSheet/by/$name'),
+    Uri.parse('http://127.0.0.1:8080/get/markSheet/by/name/$name'),
   );
   if (markSheetById.statusCode == 200) {
     List data = json.decode(markSheetById.body);
@@ -35,9 +35,8 @@ getMarkSheetsByname(option) async {
     print("#   subject  Marks Obtained    Total Marks       ");
     print("#   $subject    $marks             100           ");
     print("#   $subject1        $marks1            100             ");
-
-    print("Marks Obtained:  ${MarksObtained} out of 200");
-    print("Percentage :  ${calculatePercentage(MarksObtained, 200)}");
+    print("# Marks Obtained:  ${MarksObtained} out of 200");
+    print("# Percentage :  ${calculatePercentage(MarksObtained, 200)}");
     print("#");
     print("###################################################");
   }
@@ -51,7 +50,7 @@ getMarkSheetsByname(option) async {
 getMarkSheetsById(option) async {
   final int id = int.parse(option);
   final markSheetById = await http.get(
-    Uri.parse('http://127.0.0.1:8080/get/markSheet/by/$id'),
+    Uri.parse('http://127.0.0.1:8080/get/markSheet/by/id/$id'),
   );
   if (markSheetById.statusCode == 200) {
     Map<String, dynamic> data = json.decode(markSheetById.body);

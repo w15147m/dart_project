@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:io';
 import 'auth.dart';
 import 'student.dart';
@@ -7,7 +6,7 @@ import 'markSheets.dart';
 import 'package:http/http.dart' as http;
 
 // print('Status Code: ${markSheetById.statusCode}');
-var x = true;
+var x = false;
 void main() async {
   final student = await http.get(
     Uri.parse('http://127.0.0.1:8080/get/students'),
@@ -87,4 +86,3 @@ check1(req) {
   }
 }
 
-getMarkSheets(markSheets) {}
